@@ -18,6 +18,6 @@
  
  
   <li>How to install and set up Node and Vue.</li>
-  <li>Fundamental topics in Vue: components, templates, directives, props, events, conditional rendering, lifecycle hooks, Vue CLI, Vue Router, Axios.</li>
+  <li>Fundamental topics in Vue: components, templates, directives, events, conditional rendering, lifecycle hooks, Vue CLI, Vue Router, Axios.</li>
   <li>How App.vue and components run the framework.</li>
   <li>

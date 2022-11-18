@@ -1,0 +1,4 @@
+axios.get('https://api.coingecko.com/api/v3/coins/list').then((response) => {
+      this.items = response.data;
+      this.$forceUpdate();
+    });
