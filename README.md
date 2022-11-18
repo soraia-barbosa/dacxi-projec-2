@@ -1,19 +1,23 @@
 # dacxi-project-2
 
-## Project setup
-```
-npm install
-```
+<h1>dacxi-project></h1>
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+<ul><h1>Contents</h1>
+  <li><p>General View</p></li> 
+    <li><p>My process</></li>
+  
+  </ul>
 
-### Compiles and minifies for production
-```
-npm run build
-```
+<h1>General View</>
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+   <h2>The challenge</h2>
+ 
+
+<h1>My process</>
+  <h2>Learnings</h2>
+ 
+ 
+  <li>How to install and set up Node and Vue.</li>
+  <li>Fundamental topics in Vue: components, templates, directives, props, events, conditional rendering, lifecycle hooks, Vue CLI, Vue Router, Axios.</li>
+  <li>How App.vue and components run the framework.</li>
+  <li>
