@@ -40,13 +40,14 @@ export default {
 
 <style>
 *{
-  margin: 0;
+  margin: 0 0;
   padding: 0;
 }
 header{
   background-color: black;
   width: 100%;
   height: 60px;
+  margin-right: 0;
 }
 #title, #footer {
   color: white;
@@ -54,7 +55,8 @@ header{
  }
 
  body{
-  min-height: 100%;
+  height: 100%;
+  
  }
 
  p {
@@ -72,6 +74,19 @@ footer{
   height: 60px;
   margin: auto;
   bottom: 0;
+}
+
+@media screen and (min-width: 300px){
+    body {
+      height: 100%;
+      display: flex;
+      flex-grow: 1;
+    }
+  
+    header, footer {
+      margin-right: 0;
+      
+    }
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
