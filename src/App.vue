@@ -1,5 +1,5 @@
 <template>
-  
+  <CommonHeader/>
   <header>
     <div id=title>
      <h1>Bitcoin today</h1>
@@ -7,7 +7,7 @@
 </header>
     <body>
       <p>{{ current_price }}</p>
-       <img id=bitcoin src="../public/Bitcoin.png"/>
+       <!--img id=bitcoin src="../public/Bitcoin.png"/-->
 </body>
   <footer>
     <div id=footer>
@@ -17,21 +17,24 @@
 </template>
 
 <script>
-import axios from 'axios'
+//import axios from 'axios'
+
+import CommonHeader from './components/common/header.vue';
+
 export default {
   name: 'App',
   components: {
-    
+    CommonHeader
   },
   data: () => ({
-    current_price: 0,
+    current_price: 10,
     
   }),
   mounted() {
     
-    axios.get('https://api.coingecko.com/api/v3/coins/bitcoin').then((response) => {
-      this.current_price = response.data.market_data.current_price.brl
-    });
+    //axios.get('https://api.coingecko.com/api/v3/coins/bitcoin').then((response) => {
+    //  this.current_price = response.data.market_data.current_price.brl
+    //});
     
   }
 }
@@ -39,55 +42,16 @@ export default {
 </script>
 
 <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
 *{
-  margin: 0 0;
+  margin: 0;
   padding: 0;
-}
-header{
-  background-color: black;
-  width: 100%;
-  height: 60px;
-  margin-right: 0;
-}
-#title, #footer {
-  color: white;
-  padding: 10px;
- }
-
- body{
-  height: 100%;
-  
- }
-
- p {
-   margin-top: 70px;
- }
-
- #bitcoin {
-  width: 300px;
-  margin-top: 50px;
-  margin-bottom: 70px;
- }
-footer{
-  background-color: black;
-  width: 100%;
-  height: 60px;
-  margin: auto;
-  bottom: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
-@media screen and (min-width: 300px){
-    body {
-      height: 100%;
-      display: flex;
-      flex-grow: 1;
-    }
-  
-    header, footer {
-      margin-right: 0;
-      
-    }
-}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -95,5 +59,6 @@ footer{
   text-align: center;
   color: #2c3e50;
   margin-top: 0px;
+  width: 100%;
 }
 </style> 
