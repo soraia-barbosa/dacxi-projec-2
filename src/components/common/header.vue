@@ -6,14 +6,17 @@
         </div>
         <div class="search">
             <div class="input">
-                <input name="search" id="search">
+                <input @blur="clearResults" @keyup="searchStart" name="search" id="search">
                 <label for="search">
                     <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
                 </label>                
-            </div>
-            
+            </div>            
             <div class="results">
-
+                <ul v-if="results.length > 0">
+                    <li v-for="coin in results" :key="coin.id">
+                        <p @click="$emit('chooseCoin', {coinId: coin.id})">{{ coin.name }}</p>
+                    </li>
+                </ul>
             </div>
         </div>
     </header>
@@ -26,10 +29,38 @@ export default {
             type: Array,
             required: false,
             default: [],
-        }
+        },        
     },
-    mounted() {
-        console.log(this.coinList[1])
+    data: () => ({
+        results: [],
+    }),
+    methods: {
+        clearResults() {
+            this.results = [];
+        },
+        chooseCoin(coinId) {
+            this.$emit('chooseCoin', {
+                coinId
+            });
+        },
+        searchStart(event) {
+
+            let searchValue = event.target.value.toLowerCase();
+
+            this.results = this.coinList.filter((coin) => {
+                return coin.name.toLowerCase().search(searchValue) > -1 || coin.symbol.toLowerCase().search(searchValue) > -1;
+            });
+
+            if(this.results.length === 0) {
+                this.results.push(
+                    {
+                        "id": "not found",
+                        "symbol": "not found",
+                        "name": "No coins found"
+                    }
+                );
+            }
+        }
     }
 }
 </script>
@@ -65,7 +96,8 @@ export default {
         font-weight: 700;
         display: inline-block;
         font-size: 14px;
-        height: 32px;
+        height: 25px;
+        margin-bottom: 0;
     }
     
     header .search {
@@ -84,7 +116,7 @@ export default {
         position: relative;
         transition: top 0.2s ease-in;
         width: 32px;
-        height: 32px;
+        height: 25px;
         z-index: 2;
         top: 0;
     }
@@ -92,7 +124,7 @@ export default {
     header .search .input input {
         transition: width 0.2s ease-in;
         width: 0px;
-        height: 32px;
+        height: 25px;
         border: 0;
         border-bottom: 1px solid #fff;
         padding: 4px 0;
@@ -106,6 +138,37 @@ export default {
     header .search .input input:focus {
         width: 300px;
         padding: 4px 23px 4px 8px;
+    }
+
+    header .search .results {
+        position: absolute
+    }
+
+    header .search .results {
+        right: 30px;
+        width: 300px;
+        text-align: left;
+        background-color: #1e1e1e;
+        z-index: 2;
+    }
+
+    header .search .results ul {
+        width: 100%;
+        list-style: none;
+        margin: 0;
+        padding: 0 10px;
+        z-index: 2;
+    }
+
+    header .search .results ul li p {
+        margin-bottom: 5px;
+        cursor: pointer;
+        display: block;
+    }
+
+    header .search .results ul li:last-child p {
+        margin: 0;
+        z-index: 2;
     }
    
 
