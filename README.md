@@ -1,9 +1,5 @@
 # dacxi-project-2
 
-<h1>dacxi-project></h1>
-
-<h1>dacxi-project-2></h1>
-
 <ul><h1>Contents</h1>
   <li><p>General View</p></li> 
     <li><p>Requirements<p></li>
@@ -41,7 +37,7 @@
 
 <h1>To be continued</h1>
 
-<p>COmplete the logic to provide a research about another cryptocurrencies prices.</p>
+<p>Complete the logic to provide a research about another cryptocurrencies prices.</p>
 
 <h1>Curiosities</h1>
 
