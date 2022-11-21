@@ -111,6 +111,9 @@ export default {
         width: 100%;
         text-align: left;
     }
-
+    
+ .col-12{
+        margin-top: 15px;
+    }
 
 </style>
