@@ -20,7 +20,17 @@
 </template>
 <script>
 export default {
-    name: "CommonHeader" 
+    name: "CommonHeader",
+    props: {
+        coinList: {
+            type: Array,
+            required: false,
+            default: [],
+        }
+    },
+    mounted() {
+        console.log(this.coinList[1])
+    }
 }
 </script>
 <style scoped>
